@@ -1,0 +1,11 @@
+{
+  "name": "fish-history-to-zsh",
+  "version": "0.0.1",
+  "description": "Convert fish history file to zsh history file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jonas Verhoelen",
+  "license": "MIT"
+}
