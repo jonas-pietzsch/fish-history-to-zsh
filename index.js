@@ -1,6 +1,5 @@
-let getUserHome = () => {
-  return process.env.HOME || process.env.USERPROFILE;
-}
+const yamljs = require('yamljs');
+const getUserHome = () => process.env.HOME || process.env.USERPROFILE;
 
 /*
   Fish history (~/.local/share/fish/fish_history) is in YAML format.
@@ -16,7 +15,7 @@ let getUserHome = () => {
   : 1482183081:0;git clone https://github.com/powerline/fonts.git
  */
 
-let zshHistory = require('yamljs')
+const zshHistory = yamljs
   .load(getUserHome() + '/.local/share/fish/fish_history')
   .map(entry => `: ${entry.when}:0;${entry.cmd}`)
   .join('\n');

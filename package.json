@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "Convert fish history file to zsh history file",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "Jonas Verhoelen",
   "license": "MIT",
   "dependencies": {
