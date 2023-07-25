@@ -15,9 +15,17 @@ const getUserHome = () => process.env.HOME || process.env.USERPROFILE;
   : 1482183081:0;git clone https://github.com/powerline/fonts.git
  */
 
+function unescape(cmd) {
+  // zsh always wants a backslash before a newline, but in fish it's optional
+  return cmd
+    .toString()
+    .replace(/(\\\\)?\\[n\\]/g, (m) => (m === '\\\\' ? '\\' : '\\\n'));
+}
+
 const zshHistory = yamljs
   .load(getUserHome() + '/.local/share/fish/fish_history')
-  .map(entry => `: ${entry.when}:0;${entry.cmd}`)
+  .filter(entry => entry.cmd)
+  .map(entry => `: ${entry.when}:0;${unescape(entry.cmd)}`)
   .join('\n');
 
 
